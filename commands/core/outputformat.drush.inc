@@ -280,6 +280,10 @@ function outputformat_drush_help_alter(&$command) {
           unset($command['options']['fields']);
         }
       }
+      // If the command does work with output formats, then just hide fields.
+      else {
+        $command['options']['fields']['hidden'] = TRUE;
+      }
     }
 
     // If the command defines a default pipe format, then
